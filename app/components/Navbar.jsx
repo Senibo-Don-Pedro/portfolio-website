@@ -25,12 +25,12 @@ const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-100">
       <div className="flex flex-wrap items-center justify-between mx-auto p-8">
         <Link href={"/"}>
           <Image src="/images/logo.png" alt="logo" width={110} height={100} />
         </Link>
-        <div className="mobile-menu block md:hidden">
+        <div className="mobile-menu block md:hidden ">
           {navOpen ? (
             <button
               onClick={() => setNavOpen(false)}

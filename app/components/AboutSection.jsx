@@ -8,13 +8,14 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>PostgreSQL</li>
-        <li>Sequelize</li>
+      <ul className="list-disc pl-2 md:grid md:grid-cols-2">
+        <li>TailwindCSS</li>
+        <li>Shadcn</li>
         <li>JavaScript</li>
-        <li>React</li>
+        <li>TypeScript</li>
+        <li>Next.js</li>
+        <li>Data Fetching</li>
+        <li>MongoDB</li>
       </ul>
     ),
   },
@@ -23,18 +24,26 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
-        <li>Fullstack Academy of Code</li>
-        <li>University of California, Santa Cruz</li>
+        <li>
+          Bells University of Technology, Nigeria.{" "}
+          <i>B.Eng Computer Engineering</i>
+        </li>
+        <li>FreeCodeCamp</li>
       </ul>
     ),
   },
   {
-    title: "Certifications",
-    id: "certifications",
+    title: "soft skills",
+    id: "soft skills",
     content: (
-      <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
+      <ul className="list-disc pl-2 md:grid md:grid-cols-2">
+        <li>Active listener</li>
+        <li>Emotionally intelligent</li>
+        <li>Good communication skills</li>
+        <li>Problem solver </li>
+        <li>Keen attention to detail </li>
+        <li>Fast Learner</li>
+        <li>Can work under pressure</li>
       </ul>
     ),
   },
@@ -70,7 +79,7 @@ const AboutSection = () => {
               selectTab={() => handleChange("skills")}
               active={tab === "skills"}
             >
-              Skills
+              Hard Skills
             </TabButton>
             <TabButton
               selectTab={() => handleChange("education")}
@@ -79,10 +88,10 @@ const AboutSection = () => {
               Education
             </TabButton>
             <TabButton
-              selectTab={() => handleChange("certifications")}
-              active={tab === "certifications"}
+              selectTab={() => handleChange("soft skills")}
+              active={tab === "soft skills"}
             >
-              Certifications
+              Soft Skills
             </TabButton>
           </div>
           <div className="mt-8">

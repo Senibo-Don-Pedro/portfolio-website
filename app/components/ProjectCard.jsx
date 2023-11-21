@@ -2,7 +2,14 @@ import React from "react"
 import { HiCodeBracket, HiEye } from "react-icons/hi2"
 import Link from "next/link"
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({
+  imgUrl,
+  title,
+  description,
+  gitUrl,
+  previewUrl,
+  skillsUsed,
+}) => {
   return (
     <div>
       <div
@@ -27,6 +34,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
       <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
         <h5 className="text-xl font-semibold mb-2">{title}</h5>
         <p className="text-[#ADB7BE]">{description}</p>
+        <p className="text-white font-bold mt-3">{skillsUsed}</p>
       </div>
     </div>
   )
