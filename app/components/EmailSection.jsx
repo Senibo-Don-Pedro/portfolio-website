@@ -11,7 +11,9 @@ const EmailSection = () => {
     <section id="contact" className=" my-12 md:my-12 py-24 relative">
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-900 to-transparent rounded-full h-80 w-80 z-10 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">Let's Connect</h5>
+        <h5 className="text-xl font-bold text-white my-2">
+          Let&apos;s Connect
+        </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
           I&apos;m currently looking for new opportunities, my inbox is always
