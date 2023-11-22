@@ -69,10 +69,11 @@ const AboutSection = () => {
             I am a motivated software engineer with over a year of hands-on
             experience in software development initiatives. My passion for
             software development drives me to constantly seek new challenges and
-            opportunities. I'm excited about the prospect of taking on fresh
-            projects in the near future. Feel free to connect with me or send a
-            message if you'd like to learn more about my journey and expertise.
-            I'm always eager to engage with others and expand my network
+            opportunities. I&apos;m excited about the prospect of taking on
+            fresh projects in the near future. Feel free to connect with me or
+            send a message if you&apos;d like to learn more about my journey and
+            expertise. I&apos;m always eager to engage with others and expand my
+            network
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
