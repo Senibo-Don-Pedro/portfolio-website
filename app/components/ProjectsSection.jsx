@@ -26,6 +26,17 @@ const projectsData = [
     gitUrl: "https://github.com/Senibo-Don-Pedro/SureKicks",
     previewUrl: "https://surekicks.vercel.app/",
   },
+  {
+    id: 3,
+    title: "BrewHaven",
+    description:
+      "Elevate your coffee experience at BrewHaven, where each cup narrates a distinct tale. Explore a diverse menu of expertly crafted espresso, hot, and cold brews, and delve into a community dedicated to the art of coffee. BrewHaven, more than just a coffee shop, focuses on quality, sustainability, and the passion of its baristas. Join the community, immerse yourself in the inviting atmosphere, and discover the testimonials that make BrewHaven a cherished daily coffee haven.",
+    image: "/images/projects/3.png",
+    skillsUsed: "Tailwind CSS, JavaScript, Reactjs, React Scroll",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/Senibo-Don-Pedro/coffee-store",
+    previewUrl: "https://brewhaven.vercel.app/",
+  },
 ]
 
 const ProjectsSection = () => {
@@ -48,7 +59,7 @@ const ProjectsSection = () => {
         My Projects
       </h2>
 
-      <ul ref={ref} className="grid md:grid-cols-2 gap-8 md:gap-12">
+      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
           <motion.li
             key={index}
