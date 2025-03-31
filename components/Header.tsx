@@ -4,13 +4,18 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
-import { Moon, Sun, Menu, X } from "lucide-react"
+import { Moon, Sun, Menu, X, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  // Check if we're on the projects page
+  const isProjectsPage = pathname === "/projects"
 
   useEffect(() => setMounted(true), [])
 
@@ -38,25 +43,47 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu button - only show hamburger on home page */}
         <div className="flex lg:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          {isProjectsPage ? (
+            <Button variant="ghost" size="icon" asChild>
+              <Link href="/" aria-label="Go to home page">
+                <Home className="h-6 w-6" />
+              </Link>
+            </Button>
+          ) : (
+            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          )}
         </div>
 
-        {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:gap-x-8">
-          {navItems.map((item) => (
+        {/* Desktop navigation - only show nav links on home page */}
+        {!isProjectsPage && (
+          <div className="hidden lg:flex lg:gap-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* On projects page, show Home link instead of nav items */}
+        {isProjectsPage && (
+          <div className="hidden lg:flex lg:gap-x-8">
             <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              href="/"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center"
             >
-              {item.name}
+              <Home className="h-4 w-4 mr-1" /> Home
             </Link>
-          ))}
-        </div>
+          </div>
+        )}
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {mounted && (
@@ -72,8 +99,8 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
+      {/* Mobile menu - only render on home page */}
+      {!isProjectsPage && isMenuOpen && (
         <motion.div
           className="lg:hidden"
           initial={{ opacity: 0, height: 0 }}
