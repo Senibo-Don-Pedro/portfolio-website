@@ -17,16 +17,16 @@ export default function Projects() {
     {
       title: "Gourmet",
       description: "A full stack food ordering platform, which allows you to place orders, and manage your restaurant.",
-      image: "/placeholder.svg?height=400&width=600",
+      // image: "/placeholder.svg?height=400&width=600",
       tags: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
-      github: "https://github.com/senibodonpedro/gourmet",
-      demo: "https://gourmet-app.vercel.app",
+      github: "https://github.com/Senibo-Don-Pedro/gourmet-api",
+      demo: "https://gourmet-xxm9.onrender.com/",
     },
     {
       title: "Briefly Article Summarizer",
       description:
         "An AI-powered summarizer that efficiently distills complex content into concise, easily digestible summaries, optimizing time and enhancing key insight retention.",
-      image: "/placeholder.svg?height=400&width=600",
+      // image: "/placeholder.svg?height=400&width=600",
       tags: ["React.js", "OpenAI API", "Tailwind CSS"],
       github: "https://github.com/senibodonpedro/briefly",
       demo: "https://briefly-summarizer.vercel.app",
@@ -35,10 +35,10 @@ export default function Projects() {
       title: "Reserve",
       description:
         "A full stack Hotel reservation platform that allows users to search, book, and manage hotel reservations.",
-      image: "/placeholder.svg?height=400&width=600",
+      // image: "/placeholder.svg?height=400&width=600",
       tags: ["Next.js", "Node.js", "Prisma", "MySQL"],
-      github: "https://github.com/senibodonpedro/reserve",
-      demo: "https://reserve-hotels.vercel.app",
+      github: "https://github.com/Senibo-Don-Pedro/mern-booking-app",
+      demo: "https://mern-booking-app-inzy.onrender.com/",
     },
   ]
 
@@ -81,14 +81,14 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div key={project.title} variants={item}>
               <Card className="h-full flex flex-col overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full overflow-hidden">
+                {/* <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-105"
                   />
-                </div>
+                </div> */}
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>

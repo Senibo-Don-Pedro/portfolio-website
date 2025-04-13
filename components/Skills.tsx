@@ -15,6 +15,7 @@ import {
   Eye,
   Brain,
   CheckCircle,
+  Coffee
 } from "lucide-react"
 
 export default function Skills() {
@@ -29,13 +30,11 @@ export default function Skills() {
   ]
 
   const backendSkills = [
-    { name: "Express.js", icon: <Server className="h-5 w-5" /> },
+    { name: "SpringBoot", icon: <Server className="h-5 w-5" /> },
     { name: "Node.js", icon: <Server className="h-5 w-5" /> },
-    { name: "Prisma", icon: <Database className="h-5 w-5" /> },
     { name: "ProcessMaker", icon: <Workflow className="h-5 w-5" /> },
-    { name: "PHP", icon: <Code className="h-5 w-5" /> },
     { name: "MongoDB", icon: <Database className="h-5 w-5" /> },
-    { name: "MySQL", icon: <Database className="h-5 w-5" /> },
+    { name: "SQL", icon: <Database className="h-5 w-5" /> },
   ]
 
   const softSkills = [

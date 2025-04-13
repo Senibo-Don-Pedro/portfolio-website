@@ -28,7 +28,7 @@ export default function About() {
 
             <p>
               In my role as a Software Engineer, I design and develop scalable web applications using technologies like
-              Next.js and Express.js, focusing on creating secure, responsive, and high-performance solutions that
+              Next.js and SpringBoot, focusing on creating secure, responsive, and high-performance solutions that
               enhance user experience and operational efficiency.
             </p>
 

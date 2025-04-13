@@ -14,8 +14,8 @@ export default function Education() {
     {
       institution: "Bells University of Technology",
       degree: "BEng. Computer Engineering",
-      period: "09.2017 – 08.2022",
-      location: "Ogun, Nigeria",
+      // period: "09.2017 – 08.2022",
+      location: "Ota, Ogun State, Nigeria",
       details: [
         { icon: <GraduationCap className="h-4 w-4" />, text: "Major in Computer Engineering" },
         {
@@ -25,18 +25,7 @@ export default function Education() {
         { icon: <Users className="h-4 w-4" />, text: "Member of the Bells Developer Community" },
         { icon: <Users className="h-4 w-4" />, text: "Active member of the Basketball team" },
       ],
-    },
-    {
-      institution: "Peaklane College International",
-      degree: "High School Diploma",
-      period: "07.2011 – 07.2016",
-      location: "Ogun, Nigeria",
-      details: [
-        { icon: <Award className="h-4 w-4" />, text: "Third best graduating student, Science Class" },
-        { icon: <Users className="h-4 w-4" />, text: "Laboratory Prefect" },
-        { icon: <Users className="h-4 w-4" />, text: "Captain of the school's Basketball team" },
-      ],
-    },
+    }
   ]
 
   const container = {
@@ -83,7 +72,7 @@ export default function Education() {
                       <p className="text-primary font-medium">{edu.degree}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-medium">{edu.period}</p>
+                      {/* <p className="text-sm font-medium">{edu.period}</p> */}
                       <p className="text-sm text-muted-foreground">{edu.location}</p>
                     </div>
                   </div>
