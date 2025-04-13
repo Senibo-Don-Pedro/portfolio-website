@@ -44,62 +44,7 @@ const allProjects = [
     github: "https://github.com/senibodonpedro/reserve",
     demo: "https://reserve-hotels.vercel.app",
     featured: true,
-  },
-  {
-    title: "Portfolio Website",
-    description: "My personal portfolio website showcasing my skills, experience, and projects.",
-    longDescription:
-      "A modern, responsive portfolio website built with Next.js and Tailwind CSS. The site features a clean, minimalist design with smooth animations, dark mode support, and optimized performance. It includes sections for showcasing skills, professional experience, projects, and contact information.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-    github: "https://github.com/senibodonpedro/portfolio",
-    demo: "https://donpedro.dev",
-    featured: false,
-  },
-  {
-    title: "Weather Dashboard",
-    description: "A weather application that provides current conditions and forecasts for locations worldwide.",
-    longDescription:
-      "A feature-rich weather dashboard that provides real-time weather information and forecasts for locations around the world. Users can search for cities, view current conditions, hourly forecasts, and 7-day outlooks. The application includes interactive maps, weather alerts, and historical data visualization. Weather data is sourced from multiple APIs to ensure accuracy and reliability.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React.js", "Weather API", "Chart.js", "Geolocation", "Progressive Web App"],
-    github: "https://github.com/senibodonpedro/weather-dashboard",
-    demo: "https://weather-dashboard-demo.vercel.app",
-    featured: false,
-  },
-  {
-    title: "Task Manager",
-    description: "A productivity application for managing tasks, projects, and deadlines.",
-    longDescription:
-      "A comprehensive task management application designed to help users organize their work and increase productivity. Features include task creation with priorities and deadlines, project organization, collaborative task assignment, progress tracking, and customizable notifications. The application supports multiple views including Kanban boards, calendar views, and list views to accommodate different workflow preferences.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Vue.js", "Firebase", "Vuex", "Authentication", "Real-time Updates"],
-    github: "https://github.com/senibodonpedro/task-manager",
-    demo: "https://task-manager-demo.vercel.app",
-    featured: false,
-  },
-  {
-    title: "E-commerce Platform",
-    description: "A full-featured online store with product catalog, shopping cart, and payment processing.",
-    longDescription:
-      "A comprehensive e-commerce platform that enables businesses to sell products online. The application includes features such as product catalog management, category organization, search functionality, shopping cart, secure checkout with multiple payment options, order tracking, and customer account management. Admin users can manage inventory, process orders, and access sales analytics through a dedicated dashboard.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "MongoDB", "Redux", "Stripe", "Authentication", "Admin Dashboard"],
-    github: "https://github.com/senibodonpedro/ecommerce-platform",
-    demo: "https://ecommerce-demo.vercel.app",
-    featured: false,
-  },
-  {
-    title: "Fitness Tracker",
-    description: "An application for tracking workouts, nutrition, and fitness progress.",
-    longDescription:
-      "A comprehensive fitness tracking application that helps users monitor their health and fitness journey. Features include workout logging with exercise details and performance metrics, nutrition tracking with calorie and macronutrient calculations, body measurement recording, goal setting, progress visualization through charts and graphs, and personalized workout recommendations based on user data and preferences.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React Native", "Firebase", "Redux", "Health API Integration", "Cross-platform"],
-    github: "https://github.com/senibodonpedro/fitness-tracker",
-    demo: "https://fitness-tracker-demo.vercel.app",
-    featured: false,
-  },
+  }
 ]
 
 export default function ProjectsPage() {
@@ -163,7 +108,7 @@ export default function ProjectsPage() {
               transition={{ duration: 0.5, delay: 0.1 * index }}
             >
               <Card className="h-full flex flex-col overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full overflow-hidden">
+                {/* <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -175,7 +120,7 @@ export default function ProjectsPage() {
                       Featured
                     </div>
                   )}
-                </div>
+                </div> */}
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
