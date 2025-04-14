@@ -1,22 +1,30 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, ArrowRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const projects = [
     {
       title: "Gourmet",
-      description: "A full stack food ordering platform, which allows you to place orders, and manage your restaurant.",
+      description:
+        "A full stack food ordering platform, which allows you to place orders, and manage your restaurant.",
       // image: "/placeholder.svg?height=400&width=600",
       tags: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
       github: "https://github.com/Senibo-Don-Pedro/gourmet-api",
@@ -28,8 +36,8 @@ export default function Projects() {
         "An AI-powered summarizer that efficiently distills complex content into concise, easily digestible summaries, optimizing time and enhancing key insight retention.",
       // image: "/placeholder.svg?height=400&width=600",
       tags: ["React.js", "OpenAI API", "Tailwind CSS"],
-      github: "https://github.com/senibodonpedro/briefly",
-      demo: "https://briefly-summarizer.vercel.app",
+      github: "https://github.com/Senibo-Don-Pedro/ai-paraphraser",
+      demo: "https://brieflysummarizer.vercel.app/",
     },
     {
       title: "Reserve",
@@ -40,7 +48,7 @@ export default function Projects() {
       github: "https://github.com/Senibo-Don-Pedro/mern-booking-app",
       demo: "https://mern-booking-app-inzy.onrender.com/",
     },
-  ]
+  ];
 
   const container = {
     hidden: { opacity: 0 },
@@ -50,12 +58,12 @@ export default function Projects() {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+  };
 
   return (
     <section id="projects" className="py-20 bg-secondary/10">
@@ -68,7 +76,8 @@ export default function Projects() {
         >
           <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work, demonstrating my skills and expertise in web development.
+            A showcase of my recent work, demonstrating my skills and expertise
+            in web development.
           </p>
         </motion.div>
 
@@ -96,7 +105,10 @@ export default function Projects() {
                 <CardContent className="flex-grow">
                   <div className="flex flex-wrap gap-2 mt-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -104,12 +116,20 @@ export default function Projects() {
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <Button variant="outline" size="sm" asChild>
-                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="mr-2 h-4 w-4" /> Code
                     </Link>
                   </Button>
                   <Button size="sm" asChild>
-                    <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" /> Demo
                     </Link>
                   </Button>
@@ -134,6 +154,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

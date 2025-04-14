@@ -170,7 +170,7 @@ export default function Skills() {
               ))}
             </motion.div>
 
-            {/* Additional Skills Visualization */}
+            {/* Additional Skills Visualization
             <motion.div
               className="mt-10 p-6 bg-background rounded-lg border border-border"
               initial={{ opacity: 0, y: 20 }}
@@ -207,7 +207,7 @@ export default function Skills() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>
