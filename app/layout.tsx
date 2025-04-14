@@ -12,7 +12,10 @@ export const metadata: Metadata = {
   title: "Don-Pedro Senibo | Software Engineer & ProcessMaker Specialist",
   description:
     "Portfolio of Don-Pedro Senibo, a Full-stack Engineer and ProcessMaker Specialist based in Lagos, Nigeria",
-    generator: 'v0.dev'
+    generator: 'v0.dev',
+    icons: {
+      icon: "/landing-image.png",
+    },
 }
 
 export default function RootLayout({
