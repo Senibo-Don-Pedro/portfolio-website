@@ -14,14 +14,10 @@ export default function Education() {
     {
       institution: "Bells University of Technology",
       degree: "BEng. Computer Engineering",
-      // period: "09.2017 – 08.2022",
       location: "Ota, Ogun State, Nigeria",
       details: [
         { icon: <GraduationCap className="h-4 w-4" />, text: "Major in Computer Engineering" },
-        {
-          icon: <Award className="h-4 w-4" />,
-          text: "Relevant Coursework: Object-Oriented Programming, Applied Computer programming, Computer Programming Methodology",
-        },
+        { icon: <Award className="h-4 w-4" />, text: "Relevant Coursework: OOP, Applied Programming, Programming Methodology" },
         { icon: <Users className="h-4 w-4" />, text: "Member of the Bells Developer Community" },
         { icon: <Users className="h-4 w-4" />, text: "Active member of the Basketball team" },
       ],
@@ -30,12 +26,7 @@ export default function Education() {
 
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
   }
 
   const item = {
@@ -56,12 +47,7 @@ export default function Education() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">My academic background and qualifications.</p>
         </motion.div>
 
-        <motion.div
-          className="space-y-8 max-w-3xl mx-auto"
-          variants={container}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-        >
+        <motion.div className="space-y-8 max-w-3xl mx-auto" variants={container} initial="hidden" animate={isInView ? "show" : "hidden"}>
           {education.map((edu) => (
             <motion.div key={edu.institution} variants={item}>
               <Card>
@@ -72,7 +58,6 @@ export default function Education() {
                       <p className="text-primary font-medium">{edu.degree}</p>
                     </div>
                     <div className="text-right">
-                      {/* <p className="text-sm font-medium">{edu.period}</p> */}
                       <p className="text-sm text-muted-foreground">{edu.location}</p>
                     </div>
                   </div>
@@ -95,4 +80,3 @@ export default function Education() {
     </section>
   )
 }
-
