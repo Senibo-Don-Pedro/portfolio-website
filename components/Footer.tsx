@@ -1,65 +1,52 @@
-import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
+"use client";
+
+import Link from "next/link";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
+  const year = new Date().getFullYear();
   return (
-    <footer className="bg-background border-t border-border py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center">
-          <div className="flex space-x-4 mb-4">
-            <Link
-              href="https://www.linkedin.com/in/senibo-don-pedro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </Link>
-            <Link
-              href="https://github.com/senibo-don-pedro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </Link>
-            <Link
-              href="mailto:senibodonpedro@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="h-5 w-5" />
-            </Link>
-          </div>
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-sm text-muted-foreground">
+          © {year} Don-Pedro Senibo. All rights reserved.
+        </p>
 
-          <p className="text-center text-sm text-muted-foreground">
-            &copy; {currentYear} Don-Pedro Senibo. All rights reserved.
-          </p>
+        <div className="flex items-center gap-6">
+          <Link
+            href="/DON-PEDRO%20SENIBO%20RESUME.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Résumé (PDF)
+          </Link>
 
-          <div className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            <Link href="#about" className="hover:text-primary transition-colors">
-              About
-            </Link>
-            <Link href="#skills" className="hover:text-primary transition-colors">
-              Skills
-            </Link>
-            <Link href="#experience" className="hover:text-primary transition-colors">
-              Experience
-            </Link>
-            <Link href="#projects" className="hover:text-primary transition-colors">
-              Projects
-            </Link>
-            <Link href="#contact" className="hover:text-primary transition-colors">
-              Contact
-            </Link>
-          </div>
+          <Link
+            href="mailto:senibodonpedro@gmail.com"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            senibodonpedro@gmail.com
+          </Link>
+
+          <Link
+            href="https://www.linkedin.com/in/senibo-don-pedro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            LinkedIn
+          </Link>
+
+          <Link
+            href="https://github.com/senibo-don-pedro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            GitHub
+          </Link>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

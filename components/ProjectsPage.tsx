@@ -11,81 +11,288 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-// Extended project data with more details
-const allProjects = [
+type ProjectLink = {
+  label: string;
+  href: string;
+  kind?: "code" | "live" | "docs";
+};
+
+type Project = {
+  title: string;
+  description: string; // short subtitle
+  longDescription: string; // expanded detail
+  tags: string[];
+  links: ProjectLink[];
+  featured?: boolean;
+};
+
+const allProjects: Project[] = [
+  // --- Significant (also on homepage) ---
   {
-    title: "Gourmet",
+    title: "E-commerce Platform (Frontend + API)",
     description:
-      "A full stack food ordering platform, which allows you to place orders, and manage your restaurant.",
+      "Next.js 15 frontend + Spring Boot API with JWT, RBAC, Swagger and Paystack integration.",
     longDescription:
-      "Gourmet is a comprehensive food ordering platform that connects customers with restaurants. The application features user authentication, restaurant browsing, menu management, order placement, and real-time order tracking. Restaurant owners can manage their menus, view orders, and update their business information through a dedicated dashboard.",
-    image: "/placeholder.svg?height=400&width=600",
+      "A modern e-commerce stack. Frontend: Next.js 15 (App Router), SSR, Server Actions, Tailwind/shadcn, Google OAuth, Zustand cart, SEO. " +
+      "Backend: Spring Boot 3, JWT security + OAuth2, product/catalog search & filters, persistent carts, order processing, Paystack payments with webhook verification, and OpenAPI/Swagger docs.",
     tags: [
       "Next.js",
-      "Express.js",
-      "MongoDB",
-      "Tailwind CSS",
-      "JWT Authentication",
-      "Stripe Payment",
-    ],
-    github: "https://github.com/Senibo-Don-Pedro/gourmet-api",
-    demo: "https://gourmet-xxm9.onrender.com/",
-    featured: true,
-  },
-  {
-    title: "Briefly Article Summarizer",
-    description:
-      "An AI-powered summarizer that efficiently distills complex content into concise, easily digestible summaries, optimizing time and enhancing key insight retention.",
-    longDescription:
-      "Briefly is an AI-powered article summarization tool that uses advanced natural language processing to condense lengthy articles into concise, readable summaries. Users can input article URLs or paste text directly, adjust summary length, and save summaries for later reference. The application leverages OpenAI's GPT models to generate high-quality summaries while preserving the key points and context of the original content.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: [
-      "React.js",
-      "OpenAI API",
-      "Tailwind CSS",
-      "LocalStorage",
-      "Responsive Design",
-    ],
-    github: "https://github.com/Senibo-Don-Pedro/ai-paraphraser",
-    demo: "https://brieflysummarizer.vercel.app/",
-    featured: true,
-  },
-  {
-    title: "Reserve",
-    description:
-      "A full stack Hotel reservation platform that allows users to search, book, and manage hotel reservations.",
-    longDescription:
-      "Reserve is a comprehensive hotel booking platform that enables users to search for accommodations, view detailed information about properties, and make reservations. The application includes features such as user authentication, property filtering by location and amenities, date-based availability checking, secure payment processing, and booking management. Hotel owners can list their properties, manage bookings, and update availability through a dedicated dashboard.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: [
-      "Next.js",
-      "Node.js",
-      "Prisma",
+      "TypeScript",
+      "Tailwind",
+      "Java",
+      "Spring Boot",
       "MySQL",
-      "Authentication",
-      "Payment Integration",
+      "Paystack",
     ],
-    github: "https://github.com/Senibo-Don-Pedro/mern-booking-app",
-    demo: "https://mern-booking-app-inzy.onrender.com/",
+    links: [
+      {
+        label: "Live",
+        href: "https://e-commerce-frontend-seven-silk.vercel.app/",
+        kind: "live",
+      },
+      {
+        label: "Frontend Code",
+        href: "https://github.com/Senibo-Don-Pedro/e-commerce-frontend",
+        kind: "code",
+      },
+      {
+        label: "Backend Code",
+        href: "https://github.com/Senibo-Don-Pedro/e-commerce-api",
+        kind: "code",
+      },
+      {
+        label: "API Docs (Swagger)",
+        href: "https://e-commerce-api-4dj1.onrender.com/swagger",
+        kind: "docs",
+      },
+    ],
     featured: true,
+  },
+  {
+    title: "Secure Notes App (Frontend + Backend)",
+    description:
+      "React frontend + Spring Boot backend with JWT, optional MFA, OAuth, admin audit logs.",
+    longDescription:
+      "A production-ready notes platform. Frontend: clean, responsive React with Axios, environment-based API config and live CRUD. " +
+      "Backend: Spring Boot 3, JWT auth with expiration, optional Google Authenticator MFA, OAuth (GitHub/Google), admin-only audit logs and user management, SMTP email notifications, Swagger docs.",
+    tags: ["React", "Java", "Spring Boot", "JWT", "MFA", "MySQL"],
+    links: [
+      {
+        label: "Live",
+        href: "https://notes-application-frontend-9e75.onrender.com/",
+        kind: "live",
+      },
+      {
+        label: "Frontend Code",
+        href: "https://github.com/Senibo-Don-Pedro/notes-frontend",
+        kind: "code",
+      },
+      {
+        label: "Backend Code",
+        href: "https://github.com/Senibo-Don-Pedro/notes-backend",
+        kind: "code",
+      },
+      {
+        label: "API Docs (Swagger)",
+        href: "https://notes-backend-deployment-latest.onrender.com/swagger-ui/index.html#/",
+        kind: "docs",
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "Travel Planner App",
+    description:
+      "Trips + locations with drag-and-drop, 2D map + 3D globe, UploadThing images, GitHub OAuth.",
+    longDescription:
+      "Next.js 15 app using NextAuth v5 + Prisma/PostgreSQL. Create trips, add multiple locations (lat/lon), reorder with dnd-kit, and visualize on react-leaflet and react-globe.gl. UploadThing for cover images, Radix UI + Tailwind for responsive UI, next-themes for dark mode.",
+    tags: [
+      "Next.js",
+      "NextAuth",
+      "Prisma",
+      "PostgreSQL",
+      "Leaflet",
+      "Globe.gl",
+      "UploadThing",
+    ],
+    links: [
+      {
+        label: "Live",
+        href: "https://travel-planner-app-five.vercel.app",
+        kind: "live",
+      },
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/travel-planner-app",
+        kind: "code",
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "Next-Auth Project",
+    description:
+      "Auth.js v5 demo: OAuth (GitHub/Google), email/password, email verification, reset, optional 2FA.",
+    longDescription:
+      "Demonstrates a complete Auth.js pipeline with Prisma/PostgreSQL: credentials sign-in, bcrypt hashing, verified emails, password resets via email, optional 2FA, role-based sessions, Zod/React Hook Form validation, dark/light theming, and a protected dashboard.",
+    tags: [
+      "Next.js",
+      "Auth.js (NextAuth)",
+      "Prisma",
+      "PostgreSQL",
+      "Zod",
+      "Nodemailer",
+    ],
+    links: [
+      {
+        label: "Live",
+        href: "https://next-auth-project-jet.vercel.app",
+        kind: "live",
+      },
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/next-auth-project",
+        kind: "code",
+      },
+    ],
+    featured: true,
+  },
+
+  // --- Keep this one OFF the homepage, but include here ---
+  {
+    title: "Briefly — Article Summarizer",
+    description:
+      "React app that condenses long articles into concise summaries with adjustable length.",
+    longDescription:
+      "AI-powered summarizer for quick time-to-insight: paste a URL/text, get a concise summary; prompt tuning and local caching for snappy UX; Tailwind UI.",
+    tags: ["React", "OpenAI API", "Tailwind"],
+    links: [
+      {
+        label: "Live",
+        href: "https://brieflysummarizer.vercel.app/",
+        kind: "live",
+      },
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/ai-paraphraser",
+        kind: "code",
+      },
+    ],
+  },
+
+  // --- NEW: Smaller backend projects you shared ---
+  {
+    title: "URL Shortening Service (Spring Boot)",
+    description:
+      "Create/redirect/update/delete short links with idempotent create and hit-count stats. Global error shape. Swagger UI.",
+    longDescription:
+      "Implements URL normalization, unique short codes, atomic hit counters, deduped POST /shorten, and clean exception handling. JPA entity with indexes, service-layer validation, and OpenAPI via springdoc. Built from the roadmap.sh spec.",
+    tags: ["Java", "Spring Boot", "MySQL", "Swagger"],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/url_shortening_service",
+        kind: "code",
+      },
+      // no live/docs link yet — add later if you deploy
+    ],
+  },
+  {
+    title: "Todo List API (JWT Auth)",
+    description:
+      "Secure todos API with signup/login, JWT, role-aware access (admin vs user), pagination, and Swagger UI.",
+    longDescription:
+      "Spring Security with JWT, robust DTO validation, role-based filtering (admins see all; users see their own), PostgreSQL persistence, and a tidy Swagger surface for exploration.",
+    tags: [
+      "Java",
+      "Spring Boot",
+      "JWT",
+      "Spring Security",
+      "PostgreSQL",
+      "Swagger",
+    ],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/todo-list-with-authentication",
+        kind: "code",
+      },
+      {
+        label: "Project Spec",
+        href: "https://roadmap.sh/projects/todo-list-api",
+        kind: "docs",
+      },
+      // { label: "API Docs (Swagger)", href: "https://<your-host>/swagger-ui.html", kind: "docs" },
+    ],
+  },
+  {
+    title: "Weather API Wrapper Service",
+    description:
+      "Wrapper over OpenWeatherMap with Caffeine caching (12h) and neat Swagger docs.",
+    longDescription:
+      "Clean controller/service separation, cache-first reads with TTL invalidation, configurable units, and OpenAPI docs. Great example of API composition + caching.",
+    tags: [
+      "Java",
+      "Spring Boot",
+      "OpenWeatherMap",
+      "Caffeine Cache",
+      "Swagger",
+    ],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/weather_api",
+        kind: "code",
+      },
+      {
+        label: "Project Spec",
+        href: "https://roadmap.sh/projects/weather-api-wrapper-service",
+        kind: "docs",
+      },
+      // { label: "API Docs (Swagger)", href: "http://localhost:8080/swagger-ui.html", kind: "docs" },
+    ],
+  },
+  {
+    title: "Blog Posts API",
+    description:
+      "CRUD for posts with search and JSON/XML content negotiation, global errors, Swagger UI.",
+    longDescription:
+      "Consistent ApiResponse<T> wrapper, JSON & XML support via Accept headers, repository/service layering, and MySQL persistence. Built to the roadmap.sh blogging API spec.",
+    tags: ["Java", "Spring Boot", "MySQL", "Jackson XML", "Swagger"],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/blog_posts_api",
+        kind: "code",
+      },
+      {
+        label: "Project Spec",
+        href: "https://roadmap.sh/projects/blogging-platform-api",
+        kind: "docs",
+      },
+      // { label: "API Docs (Swagger)", href: "https://<your-host>/swagger-ui.html", kind: "docs" },
+    ],
   },
 ];
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState("All");
-  const categories = [
-    "All",
-    ...new Set(allProjects.flatMap((project) => project.tags)),
-  ];
+  const categories = ["All", ...new Set(allProjects.flatMap((p) => p.tags))];
 
   const filteredProjects =
     filter === "All"
       ? allProjects
-      : allProjects.filter((project) => project.tags.includes(filter));
+      : allProjects.filter((p) => p.tags.includes(filter));
+
+  const iconFor = (kind?: ProjectLink["kind"]) =>
+    kind === "code" ? (
+      <Github className="mr-2 h-4 w-4" />
+    ) : (
+      <ExternalLink className="mr-2 h-4 w-4" />
+    );
 
   return (
     <div className="min-h-screen py-20 bg-background">
@@ -102,10 +309,10 @@ export default function ProjectsPage() {
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
           </Link>
-          <h1 className="text-4xl font-bold mb-4">My Projects</h1>
+          <h1 className="text-4xl font-bold mb-4">Personal Projects & PoCs</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            A comprehensive collection of my work, showcasing various
-            technologies and solutions I've developed throughout my career.
+            Significant, demo-able work. Long descriptions below give context;
+            buttons link to live apps, repos, and API docs.
           </p>
         </motion.div>
 
@@ -144,19 +351,6 @@ export default function ProjectsPage() {
               transition={{ duration: 0.5, delay: 0.1 * index }}
             >
               <Card className="h-full flex flex-col overflow-hidden hover:border-primary/50 transition-colors">
-                {/* <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  {project.featured && (
-                    <div className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full">
-                      Featured
-                    </div>
-                  )}
-                </div> */}
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
@@ -176,25 +370,23 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline" size="sm" asChild>
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                <CardFooter className="flex flex-wrap gap-2">
+                  {project.links.map((l) => (
+                    <Button
+                      key={l.href}
+                      variant={l.kind === "code" ? "outline" : "default"}
+                      size="sm"
+                      asChild
                     >
-                      <Github className="mr-2 h-4 w-4" /> Code
-                    </Link>
-                  </Button>
-                  <Button size="sm" asChild>
-                    <Link
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" /> Demo
-                    </Link>
-                  </Button>
+                      <Link
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {iconFor(l.kind)} {l.label}
+                      </Link>
+                    </Button>
+                  ))}
                 </CardFooter>
               </Card>
             </motion.div>

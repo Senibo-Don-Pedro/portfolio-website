@@ -22,25 +22,16 @@ export default function About() {
 
           <div className="space-y-6 text-lg text-muted-foreground">
             <p>
-              I am a versatile and results-driven professional with a Bachelor's degree in Computer Engineering,
-              specializing in both full-stack web development and workflow automation.
+              I design and ship end-to-end web products: React/Next.js frontends, Java/Spring Boot APIs, and data layers in MySQL or MongoDB.
             </p>
 
             <p>
-              In my role as a Software Engineer, I design and develop scalable web applications using technologies like
-              Next.js and SpringBoot, focusing on creating secure, responsive, and high-performance solutions that
-              enhance user experience and operational efficiency.
+              Recent work includes compliant banking flows (onboarding, validations, card ops), internal dashboards,
+              and customer-facing landing experiences—optimized for speed, clarity, and maintainability.
             </p>
 
             <p>
-              Simultaneously, as a ProcessMaker Specialist, I streamline internal banking operations by developing
-              automated workflows that reduce manual processes, improve service delivery, and ensure seamless
-              integration with core banking systems.
-            </p>
-
-            <p>
-              My expertise in both areas allows me to drive innovation, optimize processes, and deliver impactful
-              solutions to complex business challenges.
+              I’m pragmatic, metric-driven, and enjoy moving from problem framing → architecture → implementation → polish.
             </p>
           </div>
         </motion.div>
@@ -48,4 +39,3 @@ export default function About() {
     </section>
   )
 }
-

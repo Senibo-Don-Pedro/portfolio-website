@@ -4,19 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import {
-  Code,
-  Database,
-  Server,
-  Layout,
-  Workflow,
-  MessageSquare,
-  Lightbulb,
-  Eye,
-  Brain,
-  CheckCircle,
-  Coffee
-} from "lucide-react"
+import { Code, Database, Server, Layout, MessageSquare, Lightbulb, Eye, Brain, CheckCircle } from "lucide-react"
 
 export default function Skills() {
   const ref = useRef(null)
@@ -24,36 +12,30 @@ export default function Skills() {
 
   const frontendSkills = [
     { name: "Next.js", icon: <Layout className="h-5 w-5" /> },
-    { name: "React.js", icon: <Layout className="h-5 w-5" /> },
+    { name: "React", icon: <Layout className="h-5 w-5" /> },
     { name: "TypeScript", icon: <Code className="h-5 w-5" /> },
     { name: "Tailwind CSS", icon: <Layout className="h-5 w-5" /> },
   ]
 
   const backendSkills = [
-    { name: "SpringBoot", icon: <Server className="h-5 w-5" /> },
+    { name: "Java", icon: <Server className="h-5 w-5" /> },
+    { name: "Spring Boot", icon: <Server className="h-5 w-5" /> },
     { name: "Node.js", icon: <Server className="h-5 w-5" /> },
-    { name: "ProcessMaker", icon: <Workflow className="h-5 w-5" /> },
     { name: "MongoDB", icon: <Database className="h-5 w-5" /> },
-    { name: "SQL", icon: <Database className="h-5 w-5" /> },
+    { name: "MySQL / SQL", icon: <Database className="h-5 w-5" /> },
   ]
 
   const softSkills = [
     { name: "Communication", icon: <MessageSquare className="h-5 w-5" /> },
     { name: "Collaboration", icon: <CheckCircle className="h-5 w-5" /> },
-    { name: "Emotional Intelligence", icon: <Brain className="h-5 w-5" /> },
-    { name: "Leadership Potential", icon: <Lightbulb className="h-5 w-5" /> },
-    { name: "Attention to Detail", icon: <Eye className="h-5 w-5" /> },
     { name: "Problem Solving", icon: <Lightbulb className="h-5 w-5" /> },
+    { name: "Attention to Detail", icon: <Eye className="h-5 w-5" /> },
+    { name: "Leadership Potential", icon: <Brain className="h-5 w-5" /> },
   ]
 
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   }
 
   const item = {
@@ -72,15 +54,12 @@ export default function Skills() {
         >
           <h2 className="text-3xl font-bold mb-4">Skills</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A combination of technical expertise and soft skills that enable me to deliver comprehensive solutions to
-            complex challenges.
+            Full-stack focus: React/Next.js • Java/Spring Boot • modern databases.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Technical Skills Column */}
           <div className="space-y-10">
-            {/* Frontend Skills */}
             <div>
               <motion.h3
                 className="text-xl font-semibold mb-6 text-center md:text-left"
@@ -110,7 +89,6 @@ export default function Skills() {
               </motion.div>
             </div>
 
-            {/* Backend Skills */}
             <div>
               <motion.h3
                 className="text-xl font-semibold mb-6 text-center md:text-left"
@@ -141,7 +119,6 @@ export default function Skills() {
             </div>
           </div>
 
-          {/* Soft Skills */}
           <div>
             <motion.h3
               className="text-xl font-semibold mb-6 text-center md:text-left"
@@ -169,49 +146,9 @@ export default function Skills() {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* Additional Skills Visualization
-            <motion.div
-              className="mt-10 p-6 bg-background rounded-lg border border-border"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <h4 className="font-medium mb-4">Professional Growth</h4>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium">Problem Solving</span>
-                    <span className="text-sm text-muted-foreground">90%</span>
-                  </div>
-                  <div className="w-full bg-secondary rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full" style={{ width: "90%" }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium">Team Collaboration</span>
-                    <span className="text-sm text-muted-foreground">85%</span>
-                  </div>
-                  <div className="w-full bg-secondary rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full" style={{ width: "85%" }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium">Adaptability</span>
-                    <span className="text-sm text-muted-foreground">95%</span>
-                  </div>
-                  <div className="w-full bg-secondary rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full" style={{ width: "95%" }}></div>
-                  </div>
-                </div>
-              </div>
-            </motion.div> */}
           </div>
         </div>
       </div>
     </section>
   )
 }
-

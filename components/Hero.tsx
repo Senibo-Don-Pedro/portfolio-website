@@ -31,13 +31,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            A versatile and results-driven professional specializing in
-            full-stack web development and workflow automation, creating secure,
-            responsive, and high-performance solutions.
+            Full-stack engineer focused on React/Next.js (frontend) and Java/Spring Boot (backend).
+            I build secure, resilient, and performant web apps end-to-end.
           </motion.p>
 
           <motion.div
-            className="mt-8 flex items-center gap-x-6"
+            className="mt-8 flex items-center gap-x-6 flex-wrap"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -46,7 +45,17 @@ export default function Hero() {
               <Link href="#contact">Get in touch</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="#projects">View projects</Link>
+              <Link href="#projects">See my work</Link>
+            </Button>
+            {/* Résumé CTA */}
+            <Button variant="ghost" asChild>
+              <Link
+                href="/DON-PEDRO%20SENIBO%20RESUME.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Résumé
+              </Link>
             </Button>
           </motion.div>
 
@@ -94,8 +103,6 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl transform rotate-3"></div>
             <div className="absolute inset-0 bg-background rounded-3xl transform -rotate-3 flex items-center justify-center border border-border">
               <div className="text-center p-8">
-                {/* <div className="text-6xl mb-4">👨‍💻</div> */}
-                {/* <Image src={HeroImg} alt="Header Image" className="rounded-full "/> */}
                 <Image
                   src={HeroImg}
                   alt="Header Image"

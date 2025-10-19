@@ -85,17 +85,31 @@ export default function Header() {
           </div>
         )}
 
+        {/* Right side (desktop) */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {mounted && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          <div className="flex items-center gap-2">
+            {/* Resume button (desktop) */}
+            <Button asChild>
+              <Link
+                href="/DON-PEDRO%20SENIBO%20RESUME.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </Link>
             </Button>
-          )}
+
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
+            )}
+          </div>
         </div>
       </nav>
 
@@ -119,6 +133,18 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+
+            {/* Resume link (mobile menu) */}
+            <Link
+              href="/DON-PEDRO%20SENIBO%20RESUME.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-2 text-base font-medium text-foreground hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Resume (PDF)
+            </Link>
+
             {mounted && (
               <Button
                 variant="ghost"
@@ -142,4 +168,3 @@ export default function Header() {
     </motion.header>
   )
 }
-
