@@ -13,13 +13,20 @@ export default function Education() {
   const education = [
     {
       institution: "Bells University of Technology",
-      degree: "BEng. Computer Engineering",
+      degree: "B.Eng. Computer Engineering",
       location: "Ota, Ogun State, Nigeria",
       details: [
         { icon: <GraduationCap className="h-4 w-4" />, text: "Major in Computer Engineering" },
-        { icon: <Award className="h-4 w-4" />, text: "Relevant Coursework: OOP, Applied Programming, Programming Methodology" },
-        { icon: <Users className="h-4 w-4" />, text: "Member of the Bells Developer Community" },
-        { icon: <Users className="h-4 w-4" />, text: "Active member of the Basketball team" },
+        { icon: <Users className="h-4 w-4" />, text: "Bells Developer Community Member" },
+      ],
+    },
+    {
+      institution: "Certifications",
+      degree: "Professional Licenses",
+      location: "Online / Global",
+      details: [
+        { icon: <Award className="h-4 w-4" />, text: "ITIL® v4 Foundation Certification (PeopleCert)" },
+        { icon: <Award className="h-4 w-4" />, text: "Foundational C# with Microsoft" },
       ],
     }
   ]

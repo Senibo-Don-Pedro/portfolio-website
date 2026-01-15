@@ -32,6 +32,31 @@ type Project = {
 const allProjects: Project[] = [
   // --- Significant (also on homepage) ---
   {
+    title: "Event Booking Microservices Platform",
+    description:
+      "Event-driven architecture with 4 services (User, Event, Booking, Notification) using Java 21, Spring Boot 3, Kafka, and Docker.",
+    // Only needed for the full page version
+    longDescription:
+      "A robust microservices system. Features asynchronous email notifications via Apache Kafka, a centralized API Gateway with Pattern-based Routing & JWT Security, and resilient PostgreSQL infrastructure. Fully containerized with Docker Compose for one-click deployment.",
+    tags: [
+      "Java",
+      "Spring Boot",
+      "Apache Kafka",
+      "Docker",
+      "Microservices",
+      "PostgreSQL",
+    ],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/Senibo-Don-Pedro/event-booking-system",
+        kind: "code",
+      }, // Update this URL if needed
+      // Add live link if you deploy it, otherwise just code is fine for backend projects
+    ],
+    featured: true,
+  },
+  {
     title: "E-commerce Platform (Frontend + API)",
     description:
       "Next.js 15 frontend + Spring Boot API with JWT, RBAC, Swagger and Paystack integration.",

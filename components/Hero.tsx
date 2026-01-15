@@ -21,7 +21,7 @@ export default function Hero() {
               Don-Pedro Senibo
             </h1>
             <h2 className="mt-2 text-2xl font-semibold text-primary">
-              Software Engineer
+              Fullstack Software Engineer
             </h2>
           </motion.div>
 

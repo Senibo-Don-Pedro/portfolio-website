@@ -17,35 +17,35 @@ export default function Experience() {
       period: "04.2024 – Present",
       location: "Lagos, Nigeria",
       responsibilities: [
-        "CBN-compliant ATM inventory (Java/Spring Boot + MySQL) with real-time tracking + regulatory reporting.",
-        "NIBSS NRBVN integration (React/Next.js) for instant diaspora account opening; cross-sell landing for mortgages/investments.",
-        "NIBSS FAS integration for BVN/NIN validation and identity matching across branches (KYC at scale).",
-        "Card Distribution Tracking with automated email alerts and network-wide visibility (500+ branches).",
-        "Critical Action Buzzer escalation tool with categorized routing for faster HQ support.",
-        "Transaction-charges service with core banking integration; accurate debits & reduced manual errors.",
-        "Digitized LEA request handling with secure docs, compliance tracking, and audit trails.",
+        "ATM Inventory System: Developed a CBN-compliant reporting tool tracking real-time ATM transactions, replacing manual logs with a centralized dashboard.",
+        "NIBSS Financial Authentication Service (FAS): Integrated FAS API with core banking for real-time BVN/NIN validation, streamlining KYC across branches.",
+        "Card Distribution Tracking System: Built an automated notification platform connecting 500+ branches, improving card collection rates via SMS/email alerts.",
+        "Compliance Reporting Automation System (CRAS): Engineered a full-stack Maker-Checker workflow (Spring Boot & React) that ensured 100% CBN compliance.",
+        "Collateral Management System: Architected the frontend for digital asset tracking, enabling Legal officers to manage secured assets efficiently.",
+        "Transaction Charges System: Automated statement request processing to prevent revenue leakage and accurate customer debits.",
       ],
     },
     {
-      title: "Frontend Developer & IT Support (NYSC)",
+      title: "Frontend Developer (Intern)", // Renamed to remove "IT Support"
       company: "Rural Electrification Agency",
       period: "01.2023 – 01.2024",
       location: "Abuja, Nigeria",
       responsibilities: [
-        "Mobile-first website redesign (HTML/CSS/JS) — accessibility scores up significantly.",
-        "Resolved the majority of IT tickets within 24-hour SLA for 100+ staff.",
-        "Prototyping (Figma/Angular) accelerated approvals by weeks; Agile/Jira workflow improvements.",
+        "Collaborated with a cross-functional team to re-architect the agency’s web presence using modern JavaScript frameworks.",
+        "Developed interactive prototypes that accelerated stakeholder approval time by 3 weeks.",
+        "Optimized frontend performance, improving page load speeds and accessibility scores for rural electrification data dashboards.",
       ],
     },
+    // We can keep NNPC here for history, or remove it to match resume exactly. 
+    // Since it's a website, keeping it is fine as long as it's last.
     {
       title: "Network Engineer Intern",
       company: "NNPC Limited",
       period: "04.2021 – 10.2021",
       location: "Abuja, Nigeria",
       responsibilities: [
-        "First-responder for incidents; high on-time resolution for 500+ users.",
-        "Cisco switching optimizations reduced latency; Wi-Fi reliability improved for 200+ employees.",
-        "Firewall rule hardening reduced security incidents.",
+        "Acted as first responder for network incidents, resolving connectivity issues for 500+ corporate users.",
+        "Supported troubleshooting of Wi-Fi access points and Cisco router configurations.",
       ],
     },
   ];

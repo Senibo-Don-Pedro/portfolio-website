@@ -15,7 +15,11 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-type ProjectLink = { label: string; href: string; kind?: "code" | "live" | "docs" };
+type ProjectLink = {
+  label: string;
+  href: string;
+  kind?: "code" | "live" | "docs";
+};
 
 type Project = {
   title: string;
@@ -31,15 +35,60 @@ export default function Projects() {
   // Significant, demo-able projects (front page)
   const projects: Project[] = [
     {
+      title: "Event Booking Microservices Platform",
+      description:
+        "Event-driven architecture with 4 services (User, Event, Booking, Notification) using Java 21, Spring Boot 3, Kafka, and Docker.",
+      tags: [
+        "Java",
+        "Spring Boot",
+        "Apache Kafka",
+        "Docker",
+        "Microservices",
+        "PostgreSQL",
+      ],
+      links: [
+        {
+          label: "Code",
+          href: "https://github.com/Senibo-Don-Pedro/event-booking-system",
+          kind: "code",
+        }, // Update this URL if needed
+        // Add live link if you deploy it, otherwise just code is fine for backend projects
+      ],
+    },
+    {
       title: "E-commerce Platform (Frontend + API)",
       description:
         "Full-stack commerce build: Next.js 15 frontend (SSR, server actions, Google OAuth, Paystack) + Spring Boot API (JWT, RBAC, Swagger). Includes catalog, cart, checkout, order history.",
-      tags: ["Next.js", "TypeScript", "Tailwind", "Java", "Spring Boot", "MySQL", "Paystack"],
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind",
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "Paystack",
+      ],
       links: [
-        { label: "Live", href: "https://e-commerce-frontend-seven-silk.vercel.app/", kind: "live" },
-        { label: "Frontend Code", href: "https://github.com/Senibo-Don-Pedro/e-commerce-frontend", kind: "code" },
-        { label: "Backend Code", href: "https://github.com/Senibo-Don-Pedro/e-commerce-api", kind: "code" },
-        { label: "API Docs (Swagger)", href: "https://e-commerce-api-4dj1.onrender.com/swagger", kind: "docs" },
+        {
+          label: "Live",
+          href: "https://e-commerce-frontend-seven-silk.vercel.app/",
+          kind: "live",
+        },
+        {
+          label: "Frontend Code",
+          href: "https://github.com/Senibo-Don-Pedro/e-commerce-frontend",
+          kind: "code",
+        },
+        {
+          label: "Backend Code",
+          href: "https://github.com/Senibo-Don-Pedro/e-commerce-api",
+          kind: "code",
+        },
+        {
+          label: "API Docs (Swagger)",
+          href: "https://e-commerce-api-4dj1.onrender.com/swagger",
+          kind: "docs",
+        },
       ],
     },
     {
@@ -48,39 +97,70 @@ export default function Projects() {
         "Notes platform with JWT auth, optional MFA (Google Authenticator), OAuth (Google/GitHub), admin audit logs, and full CRUD. React frontend + Spring Boot API with Swagger.",
       tags: ["React", "Java", "Spring Boot", "JWT", "MFA", "MySQL"],
       links: [
-        { label: "Live", href: "https://notes-application-frontend-9e75.onrender.com/", kind: "live" },
-        { label: "Frontend Code", href: "https://github.com/Senibo-Don-Pedro/notes-frontend", kind: "code" },
-        { label: "Backend Code", href: "https://github.com/Senibo-Don-Pedro/notes-backend", kind: "code" },
-        { label: "API Docs (Swagger)", href: "https://notes-backend-deployment-latest.onrender.com/swagger-ui/index.html#/", kind: "docs" },
-      ],
-    },
-    {
-      title: "Travel Planner App",
-      description:
-        "Next.js 15 app with GitHub OAuth, Prisma/PostgreSQL, trip + locations, drag-and-drop ordering, 2D map (react-leaflet) + 3D globe (react-globe.gl), UploadThing images, dark mode.",
-      tags: ["Next.js", "NextAuth", "Prisma", "PostgreSQL", "Leaflet", "Globe.gl", "UploadThing"],
-      links: [
-        { label: "Live", href: "https://travel-planner-app-five.vercel.app", kind: "live" },
-        { label: "Code", href: "https://github.com/Senibo-Don-Pedro/travel-planner-app", kind: "code" },
+        {
+          label: "Live",
+          href: "https://notes-application-frontend-9e75.onrender.com/",
+          kind: "live",
+        },
+        {
+          label: "Frontend Code",
+          href: "https://github.com/Senibo-Don-Pedro/notes-frontend",
+          kind: "code",
+        },
+        {
+          label: "Backend Code",
+          href: "https://github.com/Senibo-Don-Pedro/notes-backend",
+          kind: "code",
+        },
+        {
+          label: "API Docs (Swagger)",
+          href: "https://notes-backend-deployment-latest.onrender.com/swagger-ui/index.html#/",
+          kind: "docs",
+        },
       ],
     },
     {
       title: "Next-Auth Project",
       description:
         "Auth demo with Auth.js v5: OAuth (GitHub/Google), email/password, email verification, password reset, optional 2FA, roles in session token. Prisma + PostgreSQL.",
-      tags: ["Next.js", "Auth.js (NextAuth)", "Prisma", "PostgreSQL", "Zod", "Nodemailer"],
+      tags: [
+        "Next.js",
+        "Auth.js (NextAuth)",
+        "Prisma",
+        "PostgreSQL",
+        "Zod",
+        "Nodemailer",
+      ],
       links: [
-        { label: "Live", href: "https://next-auth-project-jet.vercel.app", kind: "live" },
-        { label: "Code", href: "https://github.com/Senibo-Don-Pedro/next-auth-project", kind: "code" },
+        {
+          label: "Live",
+          href: "https://next-auth-project-jet.vercel.app",
+          kind: "live",
+        },
+        {
+          label: "Code",
+          href: "https://github.com/Senibo-Don-Pedro/next-auth-project",
+          kind: "code",
+        },
       ],
     },
   ];
 
-  const container = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.2 } } };
-  const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   const iconFor = (kind?: ProjectLink["kind"]) =>
-    kind === "code" ? <Github className="mr-2 h-4 w-4" /> : <ExternalLink className="mr-2 h-4 w-4" />;
+    kind === "code" ? (
+      <Github className="mr-2 h-4 w-4" />
+    ) : (
+      <ExternalLink className="mr-2 h-4 w-4" />
+    );
 
   return (
     <section id="projects" className="py-20 bg-secondary/10">
@@ -93,7 +173,8 @@ export default function Projects() {
         >
           <h2 className="text-3xl font-bold mb-4">Personal Projects & PoCs</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Significant, demo-able builds. Each card includes code repos and live links where available.
+            Significant, demo-able builds. Each card includes code repos and
+            live links where available.
           </p>
         </motion.div>
 
@@ -113,7 +194,10 @@ export default function Projects() {
                 <CardContent className="flex-grow">
                   <div className="flex flex-wrap gap-2 mt-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -121,8 +205,17 @@ export default function Projects() {
                 </CardContent>
                 <CardFooter className="flex flex-wrap gap-2">
                   {project.links.map((l) => (
-                    <Button key={l.href} variant={l.kind === "code" ? "outline" : "default"} size="sm" asChild>
-                      <Link href={l.href} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      key={l.href}
+                      variant={l.kind === "code" ? "outline" : "default"}
+                      size="sm"
+                      asChild
+                    >
+                      <Link
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {iconFor(l.kind)} {l.label}
                       </Link>
                     </Button>
