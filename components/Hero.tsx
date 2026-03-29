@@ -23,6 +23,9 @@ export default function Hero() {
             <h2 className="mt-2 text-2xl font-semibold text-primary">
               Fullstack Software Engineer
             </h2>
+            <p className="mt-1 text-sm font-medium text-muted-foreground tracking-wide">
+              Java · Spring Boot · React · TypeScript
+            </p>
           </motion.div>
 
           <motion.p
@@ -31,8 +34,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Full-stack engineer focused on React/Next.js (frontend) and Java/Spring Boot (backend).
-            I build secure, resilient, and performant web apps end-to-end.
+            I build secure, resilient financial platforms end-to-end — from
+            event-driven Spring Boot microservices to production React frontends
+            serving 500+ bank branches.
           </motion.p>
 
           <motion.div
@@ -47,7 +51,6 @@ export default function Hero() {
             <Button variant="outline" asChild>
               <Link href="#projects">See my work</Link>
             </Button>
-            {/* Résumé CTA */}
             <Button variant="ghost" asChild>
               <Link
                 href="/DON-PEDRO%20SENIBO%20RESUME.pdf"
@@ -108,7 +111,7 @@ export default function Hero() {
                   alt="Header Image"
                   className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-primary/20"
                 />
-                <p className="text-xl font-semibold text-foreground">
+                <p className="text-xl font-semibold text-foreground mt-4">
                   Based in Lagos, Nigeria
                 </p>
                 <p className="text-muted-foreground mt-2">

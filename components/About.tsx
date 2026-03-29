@@ -22,22 +22,31 @@ export default function About() {
 
           <div className="space-y-6 text-lg text-muted-foreground">
             <p>
-              Fullstack Software Engineer with{" "}
-              <strong>3+ years of experience</strong> building secure,
-              compliant, and scalable solutions for the banking sector.
+              Fullstack Software Engineer specialising in{" "}
+              <strong>mission-critical financial platforms</strong> — currently
+              at Ecobank Nigeria, one of Africa&apos;s largest pan-African banking
+              groups, where my work spans 500+ branches and touches core
+              banking infrastructure daily.
             </p>
 
             <p>
-              I specialize in architecting{" "}
-              <strong>event-driven microservices</strong> and integrating core
-              banking systems with national platforms (NIBSS). My work focuses
-              on delivering mission-critical automation tools using{" "}
-              <strong>Java (Spring Boot)</strong> and <strong>React</strong>.
+              On the backend, I architect{" "}
+              <strong>event-driven microservices</strong> with Java, Spring Boot
+              3, and Apache Kafka, and integrate with national platforms like
+              NIBSS for real-time payment processing and identity validation. On
+              the frontend, I build production{" "}
+              <strong>React and Next.js</strong> applications in TypeScript —
+              with proper state architecture (TanStack Query for server state,
+              Zustand for client state), compliance-gated UX flows, and
+              performance optimisation baked in from the start.
             </p>
 
             <p>
-              I’m pragmatic, metric-driven, and enjoy moving from problem
-              framing → architecture → implementation → polish.
+              I&apos;m pragmatic and metric-driven. I move from problem framing →
+              architecture → implementation → production, and I care deeply
+              about building things that are{" "}
+              <strong>reliable, auditable, and maintainable</strong> — not just
+              things that work locally.
             </p>
           </div>
         </motion.div>

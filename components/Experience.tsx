@@ -12,46 +12,50 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Software Engineer – Technology Innovations",
+      title: "Software Engineer — Technology Innovations",
       company: "Ecobank Nigeria",
-      period: "04.2024 – Present",
+      period: "Apr 2024 – Present",
       location: "Lagos, Nigeria",
       responsibilities: [
-        "ATM Inventory System: Developed a CBN-compliant reporting tool tracking real-time ATM transactions, replacing manual logs with a centralized dashboard.",
-        "NIBSS Financial Authentication Service (FAS): Integrated FAS API with core banking for real-time BVN/NIN validation, streamlining KYC across branches.",
-        "Card Distribution Tracking System: Built an automated notification platform connecting 500+ branches, improving card collection rates via SMS/email alerts.",
-        "Compliance Reporting Automation System (CRAS): Engineered a full-stack Maker-Checker workflow (Spring Boot & React) that ensured 100% CBN compliance.",
-        "Collateral Management System: Architected the frontend for digital asset tracking, enabling Legal officers to manage secured assets efficiently.",
-        "Transaction Charges System: Automated statement request processing to prevent revenue leakage and accurate customer debits.",
+        "Cheque Tracking Portal: Architected a React 18 / TypeScript enterprise portal replacing a paper-based chequebook lifecycle process across CCPU, Mailroom, and 500+ branches — with strict client/server state separation (TanStack Query + Zustand), compliance-gated AlertDialog mutation flows, and a hybrid filtering strategy that eliminated a category of reconciliation errors.",
+        "Compliance Reporting Automation (CRAS): Engineered a full-stack Maker-Checker reporting platform (Spring Boot + React) replacing manual Excel submissions — achieving 100% on-time CBN submission rate and eliminating recurring report rejections caused by data-entry errors.",
+        "NIBSS FAS Integration: Integrated the NIBSS Financial Authentication Service with core banking across 500+ branches, enabling real-time BVN/NIN validation at point of service — streamlining KYC and strengthening fraud prevention.",
+        "Card Distribution Tracking: Built an automated SMS/email notification platform connecting Card Operations to 500+ branches — replacing manual coordination and measurably improving card collection rates.",
+        "ATM Inventory System: Developed a CBN-compliant ATM dashboard serving 500+ branches — replacing error-prone Excel logs with a centralised system that eliminated reporting inaccuracies and ensured continuous NIBSS compliance.",
+        "Transaction Charges & Legal Search Automation: Automated real-time charge processing across 500+ branches — eliminating manual collection entirely, closing a recurring revenue leakage gap, and generating direct cost savings through accurate, auditable transaction debiting.",
+        "NIBSS National Payment Stack (NPS): Integrated the CBN-mandated NPS service across multiple payment channels, enabling the bank to participate in the pilot phase of Nigeria's new national payment infrastructure.",
       ],
     },
     {
-      title: "Frontend Developer (Intern)", // Renamed to remove "IT Support"
+      title: "Frontend Developer (Intern)",
       company: "Rural Electrification Agency",
-      period: "01.2023 – 01.2024",
+      period: "Jan 2023 – Jan 2024",
       location: "Abuja, Nigeria",
       responsibilities: [
-        "Collaborated with a cross-functional team to re-architect the agency’s web presence using modern JavaScript frameworks.",
-        "Developed interactive prototypes that accelerated stakeholder approval time by 3 weeks.",
-        "Optimized frontend performance, improving page load speeds and accessibility scores for rural electrification data dashboards.",
+        "Collaborated within a cross-functional Agile team to re-architect the agency's web presence to a mobile-first responsive design using React and modern JavaScript — migrating from a legacy codebase and improving cross-device accessibility compliance.",
+        "Participated in sprint planning and stakeholder review cycles, delivering reusable UI components and interactive prototypes that accelerated stakeholder approval by 3 weeks.",
+        "Optimised frontend performance across rural electrification data dashboards, improving Lighthouse scores for core load speed and accessibility metrics.",
       ],
     },
-    // We can keep NNPC here for history, or remove it to match resume exactly. 
-    // Since it's a website, keeping it is fine as long as it's last.
     {
       title: "Network Engineer Intern",
       company: "NNPC Limited",
-      period: "04.2021 – 10.2021",
+      period: "Apr 2021 – Oct 2021",
       location: "Abuja, Nigeria",
       responsibilities: [
-        "Acted as first responder for network incidents, resolving connectivity issues for 500+ corporate users.",
-        "Supported troubleshooting of Wi-Fi access points and Cisco router configurations.",
+        "Resolved 90% of network incidents within 1 hour for 500+ corporate users; reduced latency by 25% across Abuja office sites by optimising Cisco router and switch configurations.",
       ],
     },
   ];
 
-  const container = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.2 } } };
-  const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <section id="experience" className="py-20 bg-background">
@@ -64,11 +68,17 @@ export default function Experience() {
         >
           <h2 className="text-3xl font-bold mb-4">Professional Experience</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Full-stack delivery across banking and public sector work.
+            Full-stack delivery across banking infrastructure and public sector
+            platforms.
           </p>
         </motion.div>
 
-        <motion.div className="space-y-8" variants={container} initial="hidden" animate={isInView ? "show" : "hidden"}>
+        <motion.div
+          className="space-y-8"
+          variants={container}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
           {experiences.map((exp, index) => (
             <motion.div key={`${exp.title}-${index}`} variants={item}>
               <Card className="overflow-hidden border-l-4 border-l-primary">
@@ -79,14 +89,23 @@ export default function Experience() {
                       <p className="text-primary font-medium">{exp.company}</p>
                     </div>
                     <div className="flex flex-col sm:items-end">
-                      <Badge variant="outline" className="mb-1 sm:ml-auto w-fit">{exp.period}</Badge>
-                      <span className="text-sm text-muted-foreground">{exp.location}</span>
+                      <Badge
+                        variant="outline"
+                        className="mb-1 sm:ml-auto w-fit"
+                      >
+                        {exp.period}
+                      </Badge>
+                      <span className="text-sm text-muted-foreground">
+                        {exp.location}
+                      </span>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                    {exp.responsibilities.map((resp, i) => <li key={i}>{resp}</li>)}
+                    {exp.responsibilities.map((resp, i) => (
+                      <li key={i}>{resp}</li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>

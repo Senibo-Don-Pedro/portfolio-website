@@ -32,37 +32,54 @@ export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-  // Significant, demo-able projects (front page)
   const projects: Project[] = [
+    {
+      title: "Cheque Tracking Portal — Ecobank",
+      description:
+        "Enterprise React 18 / TypeScript portal replacing a paper-based chequebook lifecycle process across CCPU, Mailroom, and 500+ branches. Strict client/server state separation, compliance-gated mutation flows, and hybrid filtering strategy.",
+      tags: [
+        "React 18",
+        "TypeScript",
+        "TanStack Query",
+        "TanStack Table",
+        "Zustand",
+        "Shadcn UI",
+        "Tailwind CSS",
+        "Vite",
+      ],
+      links: [
+        // Internal project — no public repo. Add a case study link if you write one.
+      ],
+    },
     {
       title: "Event Booking Microservices Platform",
       description:
-        "Event-driven architecture with 4 services (User, Event, Booking, Notification) using Java 21, Spring Boot 3, Kafka, and Docker.",
+        "Event-driven microservices system (User, Event, Booking, Notification) with a centralised API Gateway, custom JWT auth, Token Relay pattern, and Apache Kafka for async inter-service messaging. Deployed end-to-end with Docker Compose.",
       tags: [
-        "Java",
-        "Spring Boot",
+        "Java 21",
+        "Spring Boot 3",
         "Apache Kafka",
-        "Docker",
+        "Docker Compose",
         "Microservices",
         "PostgreSQL",
+        "JWT",
       ],
       links: [
         {
           label: "Code",
           href: "https://github.com/Senibo-Don-Pedro/event-booking-system",
           kind: "code",
-        }, // Update this URL if needed
-        // Add live link if you deploy it, otherwise just code is fine for backend projects
+        },
       ],
     },
     {
       title: "E-commerce Platform (Frontend + API)",
       description:
-        "Full-stack commerce build: Next.js 15 frontend (SSR, server actions, Google OAuth, Paystack) + Spring Boot API (JWT, RBAC, Swagger). Includes catalog, cart, checkout, order history.",
+        "Full-stack commerce build: Next.js 15 frontend with SSR, Server Actions, and Google OAuth, backed by a Spring Boot API with JWT/RBAC, order processing, and Paystack webhook verification.",
       tags: [
-        "Next.js",
+        "Next.js 15",
         "TypeScript",
-        "Tailwind",
+        "Tailwind CSS",
         "Java",
         "Spring Boot",
         "MySQL",
@@ -85,7 +102,7 @@ export default function Projects() {
           kind: "code",
         },
         {
-          label: "API Docs (Swagger)",
+          label: "API Docs",
           href: "https://e-commerce-api-4dj1.onrender.com/swagger",
           kind: "docs",
         },
@@ -94,7 +111,7 @@ export default function Projects() {
     {
       title: "Secure Notes App (Frontend + Backend)",
       description:
-        "Notes platform with JWT auth, optional MFA (Google Authenticator), OAuth (Google/GitHub), admin audit logs, and full CRUD. React frontend + Spring Boot API with Swagger.",
+        "Notes platform with JWT auth, optional MFA (Google Authenticator), OAuth (Google/GitHub), admin audit logs, and full CRUD. React frontend + Spring Boot API.",
       tags: ["React", "Java", "Spring Boot", "JWT", "MFA", "MySQL"],
       links: [
         {
@@ -113,7 +130,7 @@ export default function Projects() {
           kind: "code",
         },
         {
-          label: "API Docs (Swagger)",
+          label: "API Docs",
           href: "https://notes-backend-deployment-latest.onrender.com/swagger-ui/index.html#/",
           kind: "docs",
         },
@@ -122,10 +139,10 @@ export default function Projects() {
     {
       title: "Next-Auth Project",
       description:
-        "Auth demo with Auth.js v5: OAuth (GitHub/Google), email/password, email verification, password reset, optional 2FA, roles in session token. Prisma + PostgreSQL.",
+        "Complete Auth.js v5 pipeline: OAuth (GitHub/Google), email/password, email verification, password reset, optional 2FA, role-based sessions. Prisma + PostgreSQL.",
       tags: [
         "Next.js",
-        "Auth.js (NextAuth)",
+        "Auth.js",
         "Prisma",
         "PostgreSQL",
         "Zod",
@@ -171,10 +188,10 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Personal Projects & PoCs</h2>
+          <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Significant, demo-able builds. Each card includes code repos and
-            live links where available.
+            Production work and personal builds — each with code repos, live
+            links, and API docs where available.
           </p>
         </motion.div>
 
@@ -188,7 +205,9 @@ export default function Projects() {
             <motion.div key={project.title} variants={item}>
               <Card className="h-full flex flex-col overflow-hidden hover:border-primary/50 transition-colors">
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
+                  <CardTitle className="text-base leading-snug">
+                    {project.title}
+                  </CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -204,29 +223,34 @@ export default function Projects() {
                   </div>
                 </CardContent>
                 <CardFooter className="flex flex-wrap gap-2">
-                  {project.links.map((l) => (
-                    <Button
-                      key={l.href}
-                      variant={l.kind === "code" ? "outline" : "default"}
-                      size="sm"
-                      asChild
-                    >
-                      <Link
-                        href={l.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  {project.links.length > 0 ? (
+                    project.links.map((l) => (
+                      <Button
+                        key={l.href}
+                        variant={l.kind === "code" ? "outline" : "default"}
+                        size="sm"
+                        asChild
                       >
-                        {iconFor(l.kind)} {l.label}
-                      </Link>
-                    </Button>
-                  ))}
+                        <Link
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {iconFor(l.kind)} {l.label}
+                        </Link>
+                      </Button>
+                    ))
+                  ) : (
+                    <span className="text-xs text-muted-foreground italic">
+                      Internal project — proprietary
+                    </span>
+                  )}
                 </CardFooter>
               </Card>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* ✅ CTA restored */}
         <motion.div
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -235,7 +259,7 @@ export default function Projects() {
         >
           <Button asChild size="lg">
             <Link href="/projects" className="group">
-              View All Personal Projects
+              View All Projects
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
